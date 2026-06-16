@@ -1,0 +1,26 @@
+Validation summary for 152.pdf numerical examples
+
+Figure 1 / Example 9.1
+  Initial data: q(x) = x exp(-x^2)
+  Paper time slices: t = 0, 0.08, 0.16
+  Paper reports lambda1 approx -0.0138384593995, alpha- approx 0.2055954681199, alpha+ approx 0.0416040800785.
+  t=0.00000 mass=-6.938893903907e-17 mass_drift= 0.000e+00 L2= 3.133285343289e-01 L2_drift= 0.000e+00
+  t=0.08000 mass= 6.938893903907e-17 mass_drift= 1.388e-16 L2= 3.133285343289e-01 L2_drift= 2.198e-14
+  t=0.16000 mass= 6.938893903907e-17 mass_drift= 1.388e-16 L2= 3.133285343289e-01 L2_drift= 8.937e-15
+
+Figure 2 / Example 9.2
+  Initial data: q(x) = -c/2 sech^2(sqrt(c)x/2), c = pi
+  Exact lambda1 = -pi/4 = -0.78539816339745
+  Exact alpha+ = alpha- = sqrt(pi) = 1.77245385090552
+  Paper time slices: t = 0, 0.5, 1
+  Figure generated from the exact solitary-wave formula reported in the paper.
+
+Figure 3 / Example 9.3
+  Initial data: exp(x) cos(4x) for x < 0, exp(-x) J0(2x) for x > 0
+  J0 is evaluated by its integral representation J0(x) = pi^-1 int_0^pi cos(x sin(theta)) dtheta.
+
+Figure 4 / Example 9.3
+  Paper time slices: t = 0, 0.015, 0.03
+  t=0.00000 mass= 5.061286994453e-01 mass_drift= 0.000e+00 L2= 5.862079126262e-01 L2_drift= 0.000e+00
+  t=0.01500 mass= 5.061286994453e-01 mass_drift= 0.000e+00 L2= 5.862066050961e-01 L2_drift= 1.308e-06
+  t=0.03000 mass= 5.061286994453e-01 mass_drift= 2.220e-16 L2= 5.862066046745e-01 L2_drift= 1.308e-06
