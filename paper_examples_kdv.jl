@@ -138,12 +138,12 @@ function figure1(; outdir="figures")
     n = 4096
     xgrid = collect(range(xmin, xmax; length=n + 1))[1:end-1]
     q0 = xgrid .* exp.(-xgrid.^2)
-    times = [0.0, 0.08, 0.16]
+    times = [0.0, 0.28, 0.4,0.5,0.6]
     sol = solve_kdv_etdrk4(q0, xgrid, times; dt=2e-4)
     xplot = collect(range(-5.0, 7.0; length=900))
 
-    plt = plot(layout=(3, 1), size=(560, 650), margin=3Plots.mm)
-    labels = ["t=0", "t=0.08", "t=0.16"]
+    plt = plot(layout=(5, 1), size=(560, 650), margin=3Plots.mm)
+    labels = ["t=0", "t=0.28", "t=0.4","t=0.5","t=0.6"]
     for (i, t) in enumerate(times)
         y = interpolate_periodic(xgrid, sol[t], xplot)
         paper_subplot!(plt, xplot, y, i; xlims=(-5, 7), ylims=(-1, 1),

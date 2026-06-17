@@ -5,8 +5,10 @@ Figure 1 / Example 9.1
   Paper time slices: t = 0, 0.08, 0.16
   Paper reports lambda1 approx -0.0138384593995, alpha- approx 0.2055954681199, alpha+ approx 0.0416040800785.
   t=0.00000 mass=-6.938893903907e-17 mass_drift= 0.000e+00 L2= 3.133285343289e-01 L2_drift= 0.000e+00
-  t=0.08000 mass= 6.938893903907e-17 mass_drift= 1.388e-16 L2= 3.133285343289e-01 L2_drift= 2.198e-14
-  t=0.16000 mass= 6.938893903907e-17 mass_drift= 1.388e-16 L2= 3.133285343289e-01 L2_drift= 8.937e-15
+  t=0.28000 mass=-1.040834085586e-16 mass_drift= 3.469e-17 L2= 3.133285343289e-01 L2_drift= 2.942e-15
+  t=0.40000 mass=-1.387778780781e-16 mass_drift= 6.939e-17 L2= 3.133285343289e-01 L2_drift= 1.332e-15
+  t=0.50000 mass= 0.000000000000e+00 mass_drift= 6.939e-17 L2= 3.133285343289e-01 L2_drift= 6.106e-16
+  t=0.60000 mass=-6.938893903907e-17 mass_drift= 0.000e+00 L2= 3.133285343289e-01 L2_drift= 0.000e+00
 
 Figure 2 / Example 9.2
   Initial data: q(x) = -c/2 sech^2(sqrt(c)x/2), c = pi
