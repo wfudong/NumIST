@@ -2,7 +2,6 @@ export sech_stable,
        exact_one_soliton,
        evolve_beta,
        shifted_norming_constants,
-       decimal_digits_to_bits,
        trapezoid,
        relative_l2_error,
        conserved_errors,
@@ -36,7 +35,7 @@ function exact_one_soliton(x::AbstractVector, kappa::Real; beta::Real=1, shift::
 end
 
 """
-    shifted_norming_constants(kappa, beta, shifts; precision=nothing, digits=nothing)
+    shifted_norming_constants(kappa, beta, shifts)
 
 Apply per-eigenvalue spatial/phase shifts to target norming constants.
 
@@ -45,25 +44,12 @@ With the conventions in this project, a one-soliton with norming constant
 `s_n` is encoded by
 
 `beta_n -> beta_n * exp(2*kappa_n*s_n)`.
-
-The sign of each `beta_n` is preserved. Use `digits` or `precision` to compute
-the exponentials in `BigFloat` arithmetic.
 """
-function shifted_norming_constants(kappa::AbstractVector, beta::AbstractVector, shifts::AbstractVector; precision=nothing, digits=nothing)
+function shifted_norming_constants(kappa::AbstractVector, beta::AbstractVector, shifts::AbstractVector)
     length(kappa) == length(beta) == length(shifts) ||
         throw(ArgumentError("kappa, beta, and shifts must have equal length"))
 
-    bits = _precision_bits(precision, digits)
-    if bits === nothing
-        return beta .* exp.(2 .* kappa .* shifts)
-    end
-
-    return setprecision(BigFloat, bits) do
-        kb = BigFloat.(kappa)
-        bb = BigFloat.(beta)
-        sb = BigFloat.(shifts)
-        bb .* exp.(2 .* kb .* sb)
-    end
+    return beta .* exp.(2 .* kappa .* shifts)
 end
 
 """
@@ -80,40 +66,7 @@ function _evolve_beta_impl(kappa::AbstractVector, beta0::AbstractVector, t::Real
     return beta0 .* exp.(8 .* (kappa .^ 3) .* t)
 end
 
-function evolve_beta(kappa::AbstractVector, beta0::AbstractVector, t::Real; precision=nothing, digits=nothing)
-    bits = _precision_bits(precision, digits)
-    bits === nothing && return _evolve_beta_impl(kappa, beta0, t)
-
-    return setprecision(BigFloat, bits) do
-        kb = BigFloat.(kappa)
-        bb = BigFloat.(beta0)
-        tb = BigFloat(t)
-        _evolve_beta_impl(kb, bb, tb)
-    end
-end
-
-"""
-    decimal_digits_to_bits(digits)
-
-Convert a requested decimal digit count to a BigFloat precision in bits, with
-a small guard margin for intermediate arithmetic.
-"""
-decimal_digits_to_bits(digits::Integer) = ceil(Int, digits * log2(10)) + 16
-
-function _precision_bits(precision, digits)
-    precision === nothing || digits === nothing ||
-        throw(ArgumentError("use either precision=<bits> or digits=<decimal digits>, not both"))
-
-    if digits !== nothing
-        digits isa Integer && digits > 0 || throw(ArgumentError("digits must be a positive integer"))
-        return decimal_digits_to_bits(digits)
-    elseif precision !== nothing
-        precision isa Integer && precision > 0 || throw(ArgumentError("precision must be a positive integer bit count"))
-        return precision
-    else
-        return nothing
-    end
-end
+evolve_beta(kappa::AbstractVector, beta0::AbstractVector, t::Real) = _evolve_beta_impl(kappa, beta0, t)
 
 """
     trapezoid(x, y)
