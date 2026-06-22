@@ -2,9 +2,9 @@ ISTM finite-section notebook summary
 RUN_MODE = paper
 Example 9.2 max errors: [0.005022083279790701, 0.008878466393048345, 0.038307015839058156]
 Example 9.1 lambdas: [-0.013838460255656106]
-Example 9.1 alpha_minus: [0.20559545315047903]
-Example 9.1 alpha_plus: [0.04160407648841825]
-Example 9.1 direct-data errors: (lambda = 8.561561060799194e-10, alpha_minus = 1.4969420980559534e-8, alpha_plus = 3.59008175271347e-9)
+Example 9.1 alpha_minus: [0.2055954531503767]
+Example 9.1 alpha_plus: [0.041604076488396806]
+Example 9.1 direct-data errors: (lambda = 8.561561060799194e-10, alpha_minus = 1.4969523315366828e-8, alpha_plus = 3.590103193895633e-9)
 Example 9.3 lambdas: Float64[]
 Example 9.3 alpha_minus: Float64[]
 Example 9.3 alpha_plus: Float64[]
