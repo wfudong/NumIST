@@ -30,3 +30,7 @@ Example 9.2 to `NumISTNext/output/figures_ist/`.
 
 Open `notebooks/playground.ipynb` when you want an interactive place to change
 parameters and plot soliton or KdV evolution examples.
+
+Open `notebooks/sech2_potential_evolution.ipynb` to animate the KdV evolution
+of `q(x,0)=-v sech^2(x)`, generate a heatmap/GIF, and compare the predicted
+Pöschl-Teller soliton count as `v` changes.
