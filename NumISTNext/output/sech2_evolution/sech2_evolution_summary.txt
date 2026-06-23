@@ -1,0 +1,10 @@
+KdV evolution of q(x,0)=-v sech^2(x)
+domain=[-160.0, 159.9609375], nx=8192, dt=0.001, tmax=5.0
+
+v=0.5 predicted_count=1 kappas=[0.3660254037844386] stopped=false stop_reason=completed max_l2_rel=7.660538869913582e-13
+v=12.0 predicted_count=3 kappas=[3.0, 2.0, 1.0] stopped=true stop_reason=L2 drift 2.413e-03 exceeded 2.000e-03 at t=0.100 max_l2_rel=0.002413241187027903
+v=6.0 predicted_count=2 kappas=[2.0, 1.0] stopped=false stop_reason=completed max_l2_rel=0.00032834403756417285
+
+v=2 exact one-soliton max error=4.9270623803110425e-8
+stress v=12.0 stopped=true at t=0.1
+stress reason=L2 drift 2.413e-03 exceeded 2.000e-03 at t=0.100
